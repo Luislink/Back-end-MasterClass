@@ -6,8 +6,8 @@ package com.portofolio.backMarterClass.Security.Service;
 
 import com.portofolio.backMarterClass.Security.Entity.Usuario;
 import com.portofolio.backMarterClass.Security.Repository.IUsuarioRepository;
-import jakarta.transaction.Transactional;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class UsuarioService {
     @Autowired
     IUsuarioRepository iusuarioRepository;
+    
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
     }

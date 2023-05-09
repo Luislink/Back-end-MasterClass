@@ -9,6 +9,7 @@ import com.portofolio.backMarterClass.Service.IPersonaService;
 //import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,10 +38,12 @@ public class Controller {
     @Autowired
     private IPersonaService persoServ;
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
-    public void agregarPersona(@RequestBody Persona pers){
+    public String agregarPersona(@RequestBody Persona pers){
     //listapersona.add(pers);
     persoServ.crearPersona(pers);
+    return "La persona fue creada correctamente";
     }
     
     @GetMapping("/personas/traer")
@@ -50,10 +53,14 @@ public class Controller {
     return persoServ.verPersonas();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
-    public void borrarPersona(@PathVariable Long id){
+    public String borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
+        return "La persona fue borrada correctamente";
     }
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/editar/{id}")
     public void editarPersona(@RequestBody Persona per){
     persoServ.editarPersona(per);

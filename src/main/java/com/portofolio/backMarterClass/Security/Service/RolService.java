@@ -7,8 +7,8 @@ package com.portofolio.backMarterClass.Security.Service;
 import com.portofolio.backMarterClass.Security.Entity.Rol;
 import com.portofolio.backMarterClass.Security.Enums.RolNombre;
 import com.portofolio.backMarterClass.Security.Repository.IRolRepository;
-import jakarta.transaction.Transactional;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
