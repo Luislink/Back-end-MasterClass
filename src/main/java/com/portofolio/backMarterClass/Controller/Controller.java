@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Luis-W10-VM
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://front-end-angular-a62f9.web.app","http://localhost:4200"})
 public class Controller {
     /*
     List<Persona> listapersona = new ArrayList();
